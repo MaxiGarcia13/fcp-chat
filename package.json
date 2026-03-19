@@ -1,19 +1,22 @@
 {
   "name": "fcp-chat",
+  "type": "module",
   "version": "0.0.0",
+  "author": "Maximiliano Garcia Mortigliengo",
+  "license": "ISC",
   "homepage": "https://github.com/MaxiGarcia13/fcp-chat#readme",
-  "bugs": {
-    "url": "https://github.com/MaxiGarcia13/fcp-chat/issues"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MaxiGarcia13/fcp-chat.git"
   },
-  "license": "ISC",
-  "author": "Maximiliano Garcia Mortigliengo",
-  "type": "module",
+  "bugs": {
+    "url": "https://github.com/MaxiGarcia13/fcp-chat/issues"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^7.7.3"
   }
 }
