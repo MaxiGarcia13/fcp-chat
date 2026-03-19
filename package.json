@@ -15,7 +15,10 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint",
-    "format": "eslint --fix"
+    "format": "eslint --fix",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.1",

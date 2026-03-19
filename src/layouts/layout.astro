@@ -1,0 +1,54 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import { cn } from '@/utils/classes';
+import '@/styles/global.css';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const description =
+  'FCP Chat - Chat para armar los equipos para la proxima fecha de la Liga Cántabra de Pádel';
+---
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href={Astro.url.href} />
+
+    <title>Pádel Cantabria</title>
+
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:title" content="Pádel Cantabria" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/og-image.png', Astro.url)} />
+    <meta property="og:locale" content="es_ES" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url.href} />
+    <meta property="twitter:title" content="Pádel Cantabria" />
+    <meta property="twitter:description" content={description} />
+    <meta
+      property="twitter:image"
+      content={new URL('/og-image.png', Astro.url)}
+    />
+
+    <ClientRouter />
+  </head>
+  <body class="bg-cantabria-bg text-cantabria-text antialiased min-h-screen">
+    <main
+      class={cn(
+        'mx-auto max-w-4xl px-4 py-8 sm:py-10 min-h-screen flex flex-col',
+        className,
+      )}
+    >
+      <slot />
+    </main>
+  </body>
+</html>
