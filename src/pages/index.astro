@@ -1,7 +1,29 @@
 ---
+import { SearchBox } from '@/components/search-box';
 import Layout from '@/layouts/layout.astro';
 ---
 
-<Layout>
-  <h1 class="text-2xl font-bold">FCP Chat</h1>
+<Layout class="justify-center">
+  <section
+    class="mx-auto w-full max-w-xl rounded-md border border-(--color-cantabria-border) bg-(--color-cantabria-surface) p-5 sm:p-6"
+  >
+    <div class="mb-5 space-y-2">
+      <p
+        class="text-xs font-semibold uppercase tracking-wide text-(--color-cantabria-muted)"
+      >
+        Asistente FCP
+      </p>
+      <h1
+        class="text-2xl font-bold tracking-tight text-(--color-cantabria-text)"
+      >
+        FCP Chat
+      </h1>
+      <p class="text-sm text-(--color-cantabria-muted)">
+        Elige genero y grupo para entrar al chatbot y recibir sugerencias para
+        la proxima fecha.
+      </p>
+    </div>
+
+    <SearchBox client:load />
+  </section>
 </Layout>

@@ -8,6 +8,7 @@ import { defineConfig } from 'astro/config'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
+  output: 'server',
   vite: {
     resolve: {
       alias: {

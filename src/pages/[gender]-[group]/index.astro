@@ -1,0 +1,13 @@
+---
+import Layout from '@/layouts/layout.astro';
+
+const { gender, group } = Astro.params;
+
+export const prerender = false;
+---
+
+<Layout>
+  <h1>Hello World</h1>
+  <p>Gender: {gender}</p>
+  <p>Group: {group}</p>
+</Layout>
