@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { CategoryGroupSelect } from './category-select'
 import { GenderSwitch } from './gender-switch'
 
-export function SearchBox() {
+export function EntryForm() {
   const [gender, setGender] = useState<Gender>('MASCULINO')
   const [group, setGroup] = useState('')
 

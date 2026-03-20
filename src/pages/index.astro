@@ -1,5 +1,5 @@
 ---
-import { SearchBox } from '@/components/search-box';
+import { EntryForm } from '@/components/entry-form';
 import Layout from '@/layouts/layout.astro';
 ---
 
@@ -8,22 +8,16 @@ import Layout from '@/layouts/layout.astro';
     class="mx-auto w-full max-w-xl rounded-md border border-(--color-cantabria-border) bg-(--color-cantabria-surface) p-5 sm:p-6"
   >
     <div class="mb-5 space-y-2">
-      <p
-        class="text-xs font-semibold uppercase tracking-wide text-(--color-cantabria-muted)"
-      >
-        Asistente FCP
-      </p>
       <h1
         class="text-2xl font-bold tracking-tight text-(--color-cantabria-text)"
       >
-        FCP Chat
+        Asistente FCP Chat
       </h1>
       <p class="text-sm text-(--color-cantabria-muted)">
-        Elige genero y grupo para entrar al chatbot y recibir sugerencias para
-        la proxima fecha.
+        Elige genero y grupo para entrar para poder elegir el equipo.
       </p>
     </div>
 
-    <SearchBox client:load />
+    <EntryForm client:only="react" />
   </section>
 </Layout>
