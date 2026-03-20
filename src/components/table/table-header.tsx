@@ -10,12 +10,15 @@ export function TableHeader<T extends Record<string, any>>({
 }: TableHeaderProps<T>) {
   return (
     <thead>
-      <tr className="sticky top-0 z-10 border-b border-cantabria-border bg-cantabria-dark-muted shadow-[0_1px_0_0_rgba(0,0,0,0.1)]">
+      <tr className="sticky top-0 z-10 bg-cantabria-dark-muted/80 backdrop-blur">
         {columns.map((col) => {
           return (
             <th
               key={String(col.key)}
-              className={cn('px-4 py-3 font-semibold text-cantabria-text', col.className)}
+              className={cn(
+                'border-b border-cantabria-border/70 px-4 py-3 text-xs font-semibold tracking-wide text-cantabria-muted uppercase',
+                col.className,
+              )}
               style={{
                 ...(col.maxWidth && { maxWidth: col.maxWidth }),
                 ...(col.minWidth && { minWidth: col.minWidth }),

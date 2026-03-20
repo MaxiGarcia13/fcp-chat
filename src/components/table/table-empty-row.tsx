@@ -8,7 +8,7 @@ export function TableEmptyRow({ colSpan, message }: TableEmptyRowProps) {
     <tr>
       <td
         colSpan={colSpan}
-        className="px-4 py-8 text-center text-cantabria-muted"
+        className="px-4 py-10 text-center text-sm text-cantabria-muted"
       >
         {message}
       </td>

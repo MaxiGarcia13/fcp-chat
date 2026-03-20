@@ -20,7 +20,8 @@ export function Skeleton({
       role="status"
       aria-label="Loading"
       className={cn(
-        'animate-pulse rounded-lg bg-cantabria-dark-muted/50',
+        'block h-4 rounded-full bg-white/14 ring-1 ring-inset ring-white/10',
+        'motion-safe:animate-pulse',
         className,
       )}
       style={{

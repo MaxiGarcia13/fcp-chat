@@ -13,11 +13,14 @@ export function TableRow<T extends Record<string, any>>({
   columns,
   onRowClick,
 }: TableRowProps<T>) {
+  const isInteractive = Boolean(onRowClick);
+
   return (
     <tr
       className={cn(
-        'border-b border-cantabria-border/50 transition-colors hover:bg-cantabria-dark-muted/30',
-        onRowClick && 'cursor-pointer',
+        'border-b border-cantabria-border/45 last:border-b-0',
+        'transition-colors',
+        isInteractive ? 'cursor-pointer hover:bg-cantabria-dark-muted/25' : 'hover:bg-cantabria-dark-muted/10',
       )}
       onClick={onRowClick ? () => onRowClick(row) : undefined}
       role={onRowClick ? 'button' : undefined}
@@ -28,7 +31,7 @@ export function TableRow<T extends Record<string, any>>({
         return (
           <td
             key={String(col.key)}
-            className={cn('px-4 py-3 text-cantabria-text', col.className)}
+            className={cn('px-4 py-3.5 text-cantabria-text/95 align-middle', col.className)}
             style={{
               ...(col.maxWidth && { maxWidth: col.maxWidth }),
               ...(col.minWidth && { minWidth: col.minWidth }),

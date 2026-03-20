@@ -33,10 +33,12 @@ export function Table<T extends Record<string, any>>({
   loading,
   ...props
 }: TableProps<T>) {
+  const loadingWidths = ['88%', '72%', '64%', '79%', '69%']
+
   return (
     <div
       className={cn(
-        'min-w-0 overflow-hidden rounded-md border border-(--color-cantabria-border) bg-(--color-cantabria-surface)',
+        'min-w-0 overflow-hidden rounded-xl border border-cantabria-border/60 bg-cantabria-surface shadow-sm',
         fillHeight && 'flex min-h-0 flex-1 flex-col',
         className,
       )}
@@ -48,21 +50,24 @@ export function Table<T extends Record<string, any>>({
           fillHeight && 'min-h-0 flex-1',
         )}
       >
-        <table className="w-full border-collapse text-left text-sm text-(--color-cantabria-text)">
+        <table className="w-full border-separate border-spacing-0 text-left text-sm text-cantabria-text">
           <TableHeader columns={columns} />
           <tbody className="w-full">
             {
               loading
-                ? Array.from({ length: 10 }, (_, rowIndex) => (
+                ? Array.from({ length: 5 }, (_, rowIndex) => (
                     <TableRow
                       key={rowIndex}
                       row={{ id: rowIndex } as unknown as T}
-                      onRowClick={() => {}}
+                      onRowClick={undefined}
                       columns={columns.map(col =>
                         ({
                           ...col,
                           render: (_value: any, _row: any) =>
-                            <Skeleton className="h-5 w-full max-w-32" />,
+                            <Skeleton
+                              className="h-3.5 bg-white/18"
+                              width={loadingWidths[rowIndex % loadingWidths.length]}
+                            />,
                         }))}
                     />
                   ))
