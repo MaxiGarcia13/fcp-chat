@@ -4,20 +4,14 @@ import Layout from '@/layouts/layout.astro';
 ---
 
 <Layout class="justify-center">
-  <section
-    class="mx-auto w-full max-w-xl rounded-md border border-(--color-cantabria-border) bg-(--color-cantabria-surface) p-5 sm:p-6"
-  >
-    <div class="mb-5 space-y-2">
-      <h1
-        class="text-2xl font-bold tracking-tight text-(--color-cantabria-text)"
-      >
-        Asistente FCP Chat
-      </h1>
-      <p class="text-sm text-(--color-cantabria-muted)">
-        Elige genero y grupo para entrar para poder elegir el equipo.
-      </p>
-    </div>
+  <section class="mx-auto w-full max-w-xl space-y-4">
+    <h1 class="text-2xl font-bold">Asistente FCP Chat</h1>
+    <p class="text-sm opacity-80">
+      Elige genero y grupo para entrar para poder elegir el equipo.
+    </p>
 
-    <EntryForm client:only="react" />
+    <div class="min-w-0 overflow-hidden rounded-xl border border-cantabria-border/60 bg-cantabria-surface p-5 shadow-sm sm:p-6">
+      <EntryForm client:only="react" />
+    </div>
   </section>
 </Layout>

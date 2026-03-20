@@ -1,3 +1,4 @@
+import type { TableColumn } from '@/components/table'
 import type { Group, Ranking } from '@/types'
 import { navigate } from 'astro:transitions/client'
 import { Table } from '@/components/table'
@@ -15,15 +16,17 @@ export function GroupRankingTable({ gender, group }: GroupRankingTableProps) {
     [gender, group],
   )
 
-  const columns = [
+  const columns: TableColumn<Ranking>[] = [
     {
       key: 'team',
       label: 'Team',
+      className: 'font-medium',
+      render: (value) => <span className="text-cantabria-text">{value as string}</span>,
     },
   ]
 
   const ranking: Ranking[] = data?.ranking ?? []
-  const chatPath = `/${gender}-${group}/chat`
+  const chatPath = (name: string) => `/${gender}-${group}/${name}`
 
   return (
     <Table<Ranking>
@@ -31,8 +34,9 @@ export function GroupRankingTable({ gender, group }: GroupRankingTableProps) {
       data={ranking}
       loading={loading}
       error={error}
+      className="w-full"
       emptyMessage="No teams found"
-      onRowClick={() => navigate(chatPath)}
+      onRowClick={row => navigate(chatPath(row.team))}
     />
   )
 }

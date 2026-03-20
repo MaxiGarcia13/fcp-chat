@@ -49,11 +49,11 @@ export function Select({
           id={selectId}
           name={name}
           className={cn(
-            'w-full min-w-0 cursor-pointer appearance-none rounded-md border border-(--color-cantabria-border) bg-(--color-cantabria-surface) py-2.5 pl-3 pr-10',
-            'text-sm text-(--color-cantabria-text)',
+            'w-full min-w-0 cursor-pointer appearance-none rounded-md border border-cantabria-border bg-cantabria-surface py-2.5 pl-3 pr-10',
+            'text-sm text-cantabria-text',
             'transition-colors duration-150',
-            'hover:border-(--color-cantabria-dark) hover:bg-(--color-cantabria-dark-muted)',
-            'focus:border-(--color-cantabria-red) focus:outline-none focus:ring-1 focus:ring-(--color-cantabria-red)',
+            'hover:border-cantabria-dark hover:bg-cantabria-dark-muted',
+            'focus:border-cantabria-dark focus:outline-none focus:ring-1 focus:ring-cantabria-dark',
             'disabled:cursor-not-allowed disabled:opacity-50',
           )}
           value={value}
@@ -67,7 +67,7 @@ export function Select({
           ))}
         </select>
         <span
-          className="pointer-events-none absolute inset-y-0 right-0 flex w-10 items-center justify-center text-(--color-cantabria-muted) group-focus-within:text-(--color-cantabria-red)"
+          className="pointer-events-none absolute inset-y-0 right-0 flex w-10 items-center justify-center text-cantabria-muted group-focus-within:text-cantabria-text"
           aria-hidden
         >
           <ChevronIcon />

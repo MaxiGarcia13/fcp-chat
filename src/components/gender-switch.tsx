@@ -26,7 +26,7 @@ export function GenderSwitch({ label, name, value = 'MASCULINO', onChange }: Gen
       role="radiogroup"
       aria-label={label}
     >
-      <div className="inline-flex w-full overflow-hidden rounded-md border border-(--color-cantabria-border) bg-(--color-cantabria-surface)">
+      <div className="inline-flex w-full overflow-hidden rounded-md border border-cantabria-border bg-cantabria-surface">
         {options.map((opt, i) => {
           const isActive = active === opt.value
           const isSecond = i === 1
@@ -46,11 +46,11 @@ export function GenderSwitch({ label, name, value = 'MASCULINO', onChange }: Gen
               }}
               className={cn(
                 'flex-1 cursor-pointer px-4 py-2.5 text-sm font-medium transition-colors',
-                isSecond && 'border-l border-(--color-cantabria-border)',
+                isSecond && 'border-l border-cantabria-border',
                 isActive
-                  ? 'relative z-10 bg-(--color-cantabria-red) text-white'
-                  : 'bg-transparent text-(--color-cantabria-text) hover:bg-(--color-cantabria-dark-muted)',
-                'focus-visible:z-20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--color-cantabria-red) focus-visible:ring-inset',
+                  ? 'relative z-10 bg-cantabria-dark-muted text-white'
+                  : 'bg-transparent text-cantabria-text hover:bg-cantabria-dark-muted',
+                'focus-visible:z-20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cantabria-dark focus-visible:ring-inset',
               )}
             >
               {opt.label}

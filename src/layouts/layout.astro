@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions';
+import Breadcrumbs from '@/components/breadcrumbs.astro';
 import { cn } from '@/utils/classes';
 import '@/styles/global.css';
 
@@ -11,6 +12,9 @@ const { class: className } = Astro.props;
 
 const description =
   'FCP Chat - Chat para armar los equipos para la proxima fecha de la Liga Cántabra de Pádel';
+
+const pathname = Astro.url.pathname;
+const isHomePage = pathname === '/';
 ---
 
 <html>
@@ -41,13 +45,14 @@ const description =
 
     <ClientRouter />
   </head>
-  <body class="min-h-screen bg-(--color-cantabria-bg) text-(--color-cantabria-text) antialiased">
+  <body class="min-h-screen bg-cantabria-bg text-cantabria-text antialiased">
     <main
       class={cn(
         'mx-auto max-w-4xl px-4 py-8 sm:py-10 min-h-screen flex flex-col',
         className,
       )}
     >
+      {!isHomePage && <Breadcrumbs pathname={pathname} />}
       <slot />
     </main>
   </body>

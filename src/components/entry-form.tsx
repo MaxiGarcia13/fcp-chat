@@ -41,7 +41,7 @@ export function EntryForm() {
 
       <button
         type="submit"
-        className="w-full cursor-pointer rounded-md border border-(--color-cantabria-red) bg-(--color-cantabria-red) px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#b71c1c] disabled:cursor-not-allowed disabled:opacity-50"
+        className="w-full cursor-pointer rounded-md border border-cantabria-border bg-cantabria-dark-muted px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-cantabria-dark disabled:cursor-not-allowed disabled:opacity-50"
       >
         Entrar al chat
       </button>
