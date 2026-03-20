@@ -16,7 +16,7 @@
   font-display: swap;
 }
 
-:root {
+@theme {
   /* Liga Cantabra de Padel logo palette */
   --color-cantabria-dark: #455a64;
   --color-cantabria-dark-muted: #37474f;
@@ -27,18 +27,6 @@
   --color-cantabria-text: #eceff1;
   --color-cantabria-muted: #90a4ae;
   --color-cantabria-link: #c62828;
-}
-
-@theme inline {
-  --color-cantabria-dark: var(--color-cantabria-dark);
-  --color-cantabria-dark-muted: var(--color-cantabria-dark-muted);
-  --color-cantabria-red: var(--color-cantabria-red);
-  --color-cantabria-bg: var(--color-cantabria-bg);
-  --color-cantabria-surface: var(--color-cantabria-surface);
-  --color-cantabria-border: var(--color-cantabria-border);
-  --color-cantabria-text: var(--color-cantabria-text);
-  --color-cantabria-muted: var(--color-cantabria-muted);
-  --color-cantabria-link: var(--color-cantabria-link);
 }
 
 body {
