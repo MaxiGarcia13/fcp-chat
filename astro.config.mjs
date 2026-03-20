@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import react from '@astrojs/react'
 import vercel from '@astrojs/vercel'
 import tailwindcss from '@tailwindcss/vite'
-import { defineConfig } from 'astro/config'
+import { defineConfig, envField } from 'astro/config'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -19,4 +19,16 @@ export default defineConfig({
   },
   integrations: [react()],
   adapter: vercel(),
+  env: {
+    schema: {
+      API_URL: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+      API_KEY: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+    },
+  },
 })
