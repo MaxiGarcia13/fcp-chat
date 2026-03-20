@@ -1,21 +1,21 @@
-import type { TableColumn } from './types';
-import { cn } from '@/utils/classes';
-import { Skeleton } from '../skeleton';
-import { TableEmptyRow } from './table-empty-row';
-import { TableHeader } from './table-header';
-import { TableRow } from './table-row';
+import type { TableColumn } from './types'
+import { cn } from '@/utils/classes'
+import { Skeleton } from '../skeleton'
+import { TableEmptyRow } from './table-empty-row'
+import { TableHeader } from './table-header'
+import { TableRow } from './table-row'
 
 export interface TableProps<T extends Record<string, any>> {
-  columns: TableColumn<T>[];
-  data: T[];
-  className?: string;
-  getRowKey?: (row: T, index: number) => string | number;
-  emptyMessage?: string;
-  error?: Error | null;
-  onRetry?: () => void;
-  fillHeight?: boolean;
-  onRowClick?: (row: T) => void;
-  loading?: boolean;
+  columns: TableColumn<T>[]
+  data: T[]
+  className?: string
+  getRowKey?: (row: T, index: number) => string | number
+  emptyMessage?: string
+  error?: Error | null
+  onRetry?: () => void
+  fillHeight?: boolean
+  onRowClick?: (row: T) => void
+  loading?: boolean
 }
 
 export function Table<T extends Record<string, any>>({
@@ -23,8 +23,8 @@ export function Table<T extends Record<string, any>>({
   data,
   className,
   getRowKey = (row, i) => {
-    const id = (row as Record<string, unknown>).id;
-    return id != null ? String(id) : i;
+    const id = (row as Record<string, unknown>).id
+    return id != null ? String(id) : i
   },
   emptyMessage = 'No data',
   error = null,
@@ -95,5 +95,5 @@ export function Table<T extends Record<string, any>>({
         </table>
       </div>
     </div>
-  );
+  )
 }
