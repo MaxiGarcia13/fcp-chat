@@ -1,4 +1,5 @@
 import type { Group, Ranking } from '@/types'
+import { navigate } from 'astro:transitions/client'
 import { Table } from '@/components/table'
 import { useResults } from '@/hooks/use-results'
 import { request } from '@/utils/request'
@@ -22,6 +23,7 @@ export function GroupRankingTable({ gender, group }: GroupRankingTableProps) {
   ]
 
   const ranking: Ranking[] = data?.ranking ?? []
+  const chatPath = `/${gender}-${group}/chat`
 
   return (
     <Table<Ranking>
@@ -30,6 +32,7 @@ export function GroupRankingTable({ gender, group }: GroupRankingTableProps) {
       loading={loading}
       error={error}
       emptyMessage="No teams found"
+      onRowClick={() => navigate(chatPath)}
     />
   )
 }
