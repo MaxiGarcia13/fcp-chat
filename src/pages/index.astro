@@ -1,17 +1,15 @@
 ---
-import { EntryForm } from '@/components/entry-form';
+import { Chat } from '@/components/chat';
 import Layout from '@/layouts/layout.astro';
 ---
 
 <Layout class="justify-center">
-  <section class="mx-auto w-full max-w-xl space-y-4">
-    <h1 class="text-2xl font-bold">Asistente FCP Chat</h1>
-    <p class="text-sm opacity-80">
-      Elige genero y grupo para entrar para poder elegir el equipo.
-    </p>
-
-    <div class="min-w-0 overflow-hidden rounded-xl border border-cantabria-border/60 bg-cantabria-surface p-5 shadow-sm sm:p-6">
-      <EntryForm client:only="react" />
-    </div>
-  </section>
+  <h1 class="text-2xl font-bold">
+    Liga Cántabra de <span class="text-cantabria-red">Pádel con IA </span>
+  </h1>
+  <p class="text-sm opacity-80 mb-4">
+    Busca un equipo, compáralo con otros equipos o genera las posibles parejas
+    para tu próxima fecha de la Liga Cántabra de Pádel con IA.
+  </p>
+  <Chat client:only="react" messages={[]} onSend={() => {}} />
 </Layout>

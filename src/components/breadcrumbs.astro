@@ -25,14 +25,18 @@ const breadcrumbs = [
     {
       breadcrumbs.map((crumb, index) => (
         <>
-          {index > 0 && <li aria-hidden="true" class="text-cantabria-muted">/</li>}
+          {index > 0 && (
+            <li aria-hidden="true" class="text-cantabria-muted">
+              &#62;
+            </li>
+          )}
           <li>
             {index === breadcrumbs.length - 1 ? (
               <span aria-current="page" class="font-medium">
                 {crumb.label}
               </span>
             ) : (
-              <a href={crumb.href} class="text-cantabria-link hover:underline">
+              <a href={crumb.href} class="text-cantabria-muted hover:underline">
                 {crumb.label}
               </a>
             )}
