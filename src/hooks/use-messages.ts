@@ -5,9 +5,7 @@ import { atom } from 'nanostores'
 const messages = atom<Message[]>([])
 
 export function useMessages(type: 'react' | 'astro' = 'react') {
-  const addMessage = (message: string, role: MessageRole = 'user') => {
-    const id = crypto.randomUUID()
-
+  const addMessage = (message: string, id: string = crypto.randomUUID(), role: MessageRole = 'user') => {
     messages.set([
       ...messages.get(),
       {
@@ -16,8 +14,6 @@ export function useMessages(type: 'react' | 'astro' = 'react') {
         content: message,
       },
     ])
-
-    return id
   }
 
   const removeMessage = (id: string) => {

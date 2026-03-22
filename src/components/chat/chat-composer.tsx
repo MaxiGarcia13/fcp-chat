@@ -31,7 +31,9 @@ export function ChatComposer({
   function submit() {
     if (!canSend)
       return
-    const id = addMessage(trimmed)
+    const id = crypto.randomUUID()
+
+    addMessage(trimmed, id)
     setValue('')
 
     if (location.pathname === '/') {
