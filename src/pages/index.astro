@@ -1,15 +1,25 @@
 ---
-import { Chat } from '@/components/chat';
+import { Chat, ChatComposer } from '@/components/chat';
 import Layout from '@/layouts/layout.astro';
 ---
 
-<Layout class="justify-center">
-  <h1 class="text-2xl font-bold">
-    Liga Cántabra de <span class="text-cantabria-red">Pádel con IA </span>
-  </h1>
-  <p class="text-sm opacity-80 mb-4">
-    Busca un equipo, compáralo con otros equipos o genera las posibles parejas
-    para tu próxima fecha de la Liga Cántabra de Pádel con IA.
-  </p>
-  <Chat client:only="react" messages={[]} onSend={() => {}} />
+<Layout>
+  <section class="my-auto">
+    <h1 class="text-2xl font-bold mb-4">
+      Liga Cántabra de Pádel
+      <span class="typewriter max-w-[125px]">
+        <span class="text-cantabria-red"> pero con IA </span>
+      </span>
+    </h1>
+
+    <Chat>
+      <ChatComposer />
+    </Chat>
+
+    <p class="text-sm opacity-80 mt-4">
+      Busca la tabla de posiciones, un equipo o compáralo con otros equipos o
+      genera las posibles parejas para tu próxima fecha de la Liga Cántabra de
+      Pádel con IA.
+    </p>
+  </section>
 </Layout>

@@ -1,23 +1,27 @@
-import { useId, useState } from 'react'
+import { navigate } from 'astro:transitions/client'
+import { useEffect, useId, useRef, useState } from 'react'
 import { PaperPlaneIcon } from '@/assets/icons/paper-plane'
+import { useMessages } from '@/hooks/use-messages'
 import { cn } from '@/utils/classes'
 import { ChatTextarea } from './chat-textarea'
 
 export interface ChatComposerProps {
-  onSend: (text: string) => void
   disabled?: boolean
   placeholder?: string
   sendLabel?: string
   className?: string
+  focus?: boolean
 }
 
 export function ChatComposer({
-  onSend,
   disabled,
   placeholder = 'Escribe un mensaje…',
   sendLabel = 'Enviar',
   className,
 }: ChatComposerProps) {
+  const inputRef = useRef<HTMLTextAreaElement>(null)
+  const { addMessage } = useMessages()
+
   const [value, setValue] = useState('')
   const inputId = useId()
 
@@ -27,9 +31,19 @@ export function ChatComposer({
   function submit() {
     if (!canSend)
       return
-    onSend(trimmed)
+    const id = addMessage(trimmed)
     setValue('')
+
+    if (location.pathname === '/') {
+      navigate(`/${id}`)
+    }
   }
+
+  useEffect(() => {
+    if (focus) {
+      inputRef.current?.focus()
+    }
+  }, [focus])
 
   return (
     <div className={cn('flex flex-col', className)}>
@@ -38,6 +52,7 @@ export function ChatComposer({
       </label>
       <div className="relative flex w-full justify-center">
         <ChatTextarea
+          ref={inputRef}
           id={inputId}
           value={value}
           disabled={disabled}

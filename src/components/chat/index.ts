@@ -1,6 +1,5 @@
-export * from './chat'
-export * from './chat-composer'
+export { default as ChatComposer } from './chat-composer.astro'
 export * from './chat-message-bubble'
 export * from './chat-messages'
 export * from './chat-textarea'
-export * from './types'
+export { default as Chat } from './chat.astro'

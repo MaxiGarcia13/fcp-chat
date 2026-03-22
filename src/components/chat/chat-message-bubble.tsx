@@ -1,8 +1,8 @@
-import type { ChatMessage } from './types'
+import type { Message } from '@/types/message'
 import { cn } from '@/utils/classes'
 
 export interface ChatMessageBubbleProps {
-  message: ChatMessage
+  message: Message
   className?: string
 }
 

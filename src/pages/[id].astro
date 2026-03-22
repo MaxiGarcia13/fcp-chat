@@ -1,0 +1,12 @@
+---
+import { Chat, ChatComposer, ChatMessages } from '@/components/chat';
+import Layout from '@/layouts/layout.astro';
+---
+
+<Layout>
+  <Chat>
+    <ChatMessages client:only="react" />
+
+    <ChatComposer />
+  </Chat>
+</Layout>

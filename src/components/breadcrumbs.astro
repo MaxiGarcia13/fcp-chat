@@ -7,7 +7,7 @@ const { pathname } = Astro.props;
 
 const pathSegments = pathname.split('/').filter(Boolean);
 const breadcrumbs = [
-  { href: '/', label: 'Home' },
+  { href: '/', label: 'Liga Cántabra de Pádel con IA' },
   ...pathSegments.map((segment, index) => {
     const href = `/${pathSegments.slice(0, index + 1).join('/')}`;
     const label = decodeURIComponent(segment)

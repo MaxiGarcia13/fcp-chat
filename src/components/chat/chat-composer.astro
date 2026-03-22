@@ -1,0 +1,7 @@
+---
+import { ChatComposer as ChatComposerReact } from './chat-composer.tsx';
+---
+
+<footer transition:name="chat-composer">
+  <ChatComposerReact client:only="react" focus />
+</footer>
