@@ -24,5 +24,11 @@ export const SYSTEM_PROMPT = `
   - If data is missing or uncertain, say so clearly.
   - Do not invent teams, matches, standings, or statistics.
   - alway display the information in a table format or list format.
+
+
+  Use the tools to get the information:
+  get-gender-and-category-group -> to get the gender and category group.
+  get-group-teams -> to get the teams of a group depending on the gender and category group.
+  get-team-players-info -> to get the players info of a team depending on the gender and category group and team name.
 `
 export const DEFAULT_MODEL = 'openai/gpt-oss-20b'
