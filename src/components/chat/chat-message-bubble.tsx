@@ -1,4 +1,5 @@
 import type { Message } from '@/types/message'
+import { Streamdown } from 'streamdown'
 import { cn } from '@/utils/classes'
 
 export interface ChatMessageBubbleProps {
@@ -26,11 +27,15 @@ export function ChatMessageBubble({ message, className }: ChatMessageBubbleProps
           !isUser && !isSystem && 'border border-cantabria-border bg-cantabria-surface text-cantabria-text',
         )}
       >
-        <p className="whitespace-pre-wrap wrap-break-word">
+        <Streamdown
+          components={{
+            bold: 'b',
+          }}
+        >
           {
             message.parts.map(part => part.type === 'text' ? part.text : '').join('')
           }
-        </p>
+        </Streamdown>
       </div>
     </div>
   )
