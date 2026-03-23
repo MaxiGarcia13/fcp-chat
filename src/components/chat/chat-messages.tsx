@@ -1,5 +1,4 @@
 import { useStore } from '@nanostores/react'
-import { navigate } from 'astro:transitions/client'
 import { useEffect } from 'react'
 import { useChat } from '@/hooks/use-chat'
 import { cn } from '@/utils/classes'
@@ -26,7 +25,7 @@ export function ChatMessages({ className }: ChatMessagesProps) {
   return (
     <div
       className={cn(
-        'flex h-full flex-1 w-full min-h-48 flex-col gap-3 overflow-y-auto rounded-lg border border-cantabria-border bg-cantabria-surface/30 p-3 pb-14',
+        'flex h-full min-h-0 min-w-0 flex-1 w-full flex-col gap-3 overflow-y-auto rounded-lg border border-cantabria-border bg-cantabria-surface/30 p-3 pb-14',
         className,
       )}
       role="log"
