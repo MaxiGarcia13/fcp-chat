@@ -25,7 +25,7 @@ export function ChatMessages({ className }: ChatMessagesProps) {
   return (
     <div
       className={cn(
-        'flex h-full min-h-0 min-w-0 flex-1 w-full flex-col gap-3 overflow-y-auto rounded-lg border border-cantabria-border bg-cantabria-surface/30 p-3 pb-14',
+        'flex h-0 min-h-0 min-w-0 flex-1 w-full flex-col gap-3 overflow-y-auto rounded-lg border border-cantabria-border bg-cantabria-surface/30 p-3 pb-14',
         className,
       )}
       role="log"
