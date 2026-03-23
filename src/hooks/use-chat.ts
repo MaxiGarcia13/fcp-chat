@@ -3,6 +3,7 @@ import { atom } from 'nanostores'
 import { useStorage } from './use-storage'
 
 const messagesStore = atom<Message[]>([])
+const isLoadingStore = atom(false)
 
 export function useChat(chatID?: string) {
   const storage = useStorage()
@@ -21,6 +22,7 @@ export function useChat(chatID?: string) {
 
   const clearMessages = () => {
     messagesStore.set([])
+    isLoadingStore.set(false)
   }
 
   const restoreMessagesFormStorage = () => {
@@ -71,10 +73,11 @@ export function useChat(chatID?: string) {
   const sendMessage = async (message: string, chatID: string) => {
     addMessage('user', message, crypto.randomUUID())
     storage.setJson(`messages-for-chat:${chatID}`, messagesStore.get())
+    isLoadingStore.set(true)
 
     try {
       const response = await fetchMessage()
-
+      isLoadingStore.set(false)
       if (!response.ok) {
         const errorMessage = await getErrorMessage(response)
         throw new Error(errorMessage)
@@ -88,11 +91,14 @@ export function useChat(chatID?: string) {
       const errorMessage = error instanceof Error ? error.message : 'Error sending message'
       addMessage('assistant', `Error: ${errorMessage}`, crypto.randomUUID())
       storage.setJson(`messages-for-chat:${chatID}`, messagesStore.get())
+    } finally {
+      isLoadingStore.set(false)
     }
   }
 
   return {
     store: messagesStore,
+    isLoadingStore,
     sendMessage,
     clearMessages,
     restoreMessagesFormStorage,

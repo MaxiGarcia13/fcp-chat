@@ -3,12 +3,20 @@ import { ClientRouter } from 'astro:transitions';
 import Breadcrumbs from '@/components/breadcrumbs.astro';
 import { cn } from '@/utils/classes';
 import '@/styles/global.css';
+import pkg from '../../package.json';
 
 interface Props {
   class?: string;
 }
 
 const { class: className } = Astro.props;
+
+const repoUrl =
+  typeof pkg.repository === 'object' && pkg.repository?.url
+    ? pkg.repository.url.replace(/^git\+/, '').replace(/\.git$/, '')
+    : (pkg.homepage?.split('#')[0] ?? '#');
+
+const authorLinkedInUrl = 'https://www.linkedin.com/in/maximilianogarcia13';
 
 const description =
   'FCP Chat - Chat para armar los equipos para la proxima fecha de la Liga Cántabra de Pádel';
@@ -54,6 +62,32 @@ const isHomePage = pathname === '/';
     >
       {!isHomePage && <Breadcrumbs pathname={pathname} />}
       <slot />
+      <footer
+        class="mt-auto border-t border-cantabria-border/40 pt-6 text-center text-xs text-cantabria-muted"
+      >
+        <p>
+          v{pkg.version}
+          <span class="mx-1.5 opacity-50" aria-hidden="true">·</span>
+          <a
+            href={repoUrl}
+            class="text-cantabria-link underline-offset-2 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Repositorio
+          </a>
+          <span class="mx-1.5 opacity-50" aria-hidden="true">·</span>
+          Creado por{' '}
+          <a
+            href={authorLinkedInUrl}
+            class="text-cantabria-link underline-offset-2 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {pkg.author}
+          </a>
+        </p>
+      </footer>
     </main>
   </body>
 </html>

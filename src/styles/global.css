@@ -56,7 +56,8 @@
 
 /* Width of the scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 3px;
+  height: 6px;
 }
 
 /* Track (the background) */
@@ -72,5 +73,5 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
+  background: var(--color-cantabria-muted);
 }
