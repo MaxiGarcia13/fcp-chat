@@ -26,7 +26,11 @@ export function ChatMessageBubble({ message, className }: ChatMessageBubbleProps
           !isUser && !isSystem && 'border border-cantabria-border bg-cantabria-surface text-cantabria-text',
         )}
       >
-        <p className="whitespace-pre-wrap wrap-break-word">{message.content}</p>
+        <p className="whitespace-pre-wrap wrap-break-word">
+          {
+            message.parts.map(part => part.type === 'text' ? part.text : '').join('')
+          }
+        </p>
       </div>
     </div>
   )

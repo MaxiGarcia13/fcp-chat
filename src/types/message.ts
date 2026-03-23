@@ -1,7 +1,5 @@
-export type MessageRole = 'user' | 'assistant' | 'system'
+import type { UIMessage } from 'ai'
 
-export interface Message {
-  id: string
-  role: MessageRole
-  content: string
-}
+export type MessageRole = UIMessage['role']
+
+export interface Message extends UIMessage {}

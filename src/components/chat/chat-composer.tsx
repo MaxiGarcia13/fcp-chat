@@ -1,7 +1,7 @@
 import { navigate } from 'astro:transitions/client'
 import { useEffect, useId, useRef, useState } from 'react'
 import { PaperPlaneIcon } from '@/assets/icons/paper-plane'
-import { useMessages } from '@/hooks/use-messages'
+import { useChat } from '@/hooks/use-chat'
 import { cn } from '@/utils/classes'
 import { ChatTextarea } from './chat-textarea'
 
@@ -20,7 +20,7 @@ export function ChatComposer({
   className,
 }: ChatComposerProps) {
   const inputRef = useRef<HTMLTextAreaElement>(null)
-  const { addMessage } = useMessages()
+  const { sendMessage } = useChat()
 
   const [value, setValue] = useState('')
   const inputId = useId()
@@ -31,13 +31,17 @@ export function ChatComposer({
   function submit() {
     if (!canSend)
       return
-    const id = crypto.randomUUID()
 
-    addMessage(trimmed, id)
+    const isEntrePage = location.pathname === '/'
+
+    const chatID = isEntrePage ? crypto.randomUUID() : location.pathname.split('/').pop()
+
+    sendMessage(trimmed, chatID)
+
     setValue('')
 
-    if (location.pathname === '/') {
-      navigate(`/${id}`)
+    if (isEntrePage) {
+      navigate(`/${chatID}`)
     }
   }
 

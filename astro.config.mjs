@@ -29,6 +29,18 @@ export default defineConfig({
         context: 'server',
         access: 'secret',
       }),
+      GROQ_API_KEY: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+      MCP_URL: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+      VERCEL_AUTOMATION_BYPASS_SECRET: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
     },
   },
 })

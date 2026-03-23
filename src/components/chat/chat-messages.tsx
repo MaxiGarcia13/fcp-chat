@@ -1,22 +1,22 @@
+import { useStore } from '@nanostores/react'
 import { navigate } from 'astro:transitions/client'
 import { useEffect } from 'react'
-import { useMessages } from '@/hooks/use-messages'
+import { useChat } from '@/hooks/use-chat'
 import { cn } from '@/utils/classes'
 import { ChatMessageBubble } from './chat-message-bubble'
 
 export interface ChatMessagesProps {
-
   className?: string
 }
 
 export function ChatMessages({ className }: ChatMessagesProps) {
-  const { messages, clearMessages } = useMessages('react')
+  const chatID = location.pathname.split('/').pop()
+
+  const { store, clearMessages, restoreMessagesFormStorage } = useChat(chatID)
+  const messages = useStore(store)
 
   useEffect(() => {
-    if (messages.length === 0) {
-      clearMessages()
-      navigate('/')
-    }
+    restoreMessagesFormStorage()
 
     return () => {
       clearMessages()
@@ -33,8 +33,8 @@ export function ChatMessages({ className }: ChatMessagesProps) {
       aria-live="polite"
       aria-relevant="additions"
     >
-      {messages.map(msg => (
-        <ChatMessageBubble key={msg.id} message={msg} />
+      {messages.map(message => (
+        <ChatMessageBubble key={message.id} message={message} />
       ))}
     </div>
   )
