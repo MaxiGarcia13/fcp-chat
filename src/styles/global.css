@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import 'streamdown/styles.css';
 
 @font-face {
   font-family: "Datatype";
@@ -29,11 +30,6 @@
   --color-cantabria-link: #c62828;
 }
 
-body {
-  font-family: "Datatype", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-variant-ligatures: common-ligatures contextual;
-  font-feature-settings: "liga" 1, "calt" 1;
-}
 
 .typewriter {
   display: inline-block;
@@ -56,4 +52,25 @@ body {
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: var(--color-cantabria-red); }
+}
+
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track (the background) */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle (the part you grab) */
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
 }
