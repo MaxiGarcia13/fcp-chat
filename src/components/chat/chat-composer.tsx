@@ -43,16 +43,11 @@ export function ChatComposer({
 
     setValue('')
 
+    inputRef.current?.focus()
     if (isEntrePage) {
       navigate(`/${chatID}`)
     }
   }
-
-  useEffect(() => {
-    if (focus) {
-      inputRef.current?.focus()
-    }
-  }, [focus])
 
   return (
     <div className={cn('flex flex-col', className)}>
@@ -68,6 +63,7 @@ export function ChatComposer({
           placeholder={placeholder}
           rows={2}
           className="pr-14"
+          autoFocus={window === window.parent}
           onChange={e => setValue(e.target.value)}
           onKeyDown={(e) => {
             if (e.key !== 'Enter' || e.shiftKey)
