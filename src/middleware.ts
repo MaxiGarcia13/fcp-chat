@@ -7,7 +7,7 @@ interface RateLimitEntry {
 
 const rateLimitStore = new Map<string, RateLimitEntry>()
 
-const RATE_LIMIT_REQUESTS = 5 // 5 requests per minute
+const RATE_LIMIT_REQUESTS = 10 // 5 requests per minute
 const RATE_LIMIT_WINDOW_MS = 60_000 // 1 minute
 
 function getClientIp(request: Request) {
