@@ -17,7 +17,7 @@ export function ChatTextarea({
     <textarea
       ref={ref}
       className={cn(
-        'min-h-14 w-full resize-none overflow-y-auto rounded-md border border-cantabria-border bg-cantabria-surface py-2.5 pl-3 pr-3 text-sm text-cantabria-text',
+        'min-h-14 w-full resize-none overflow-y-auto rounded-md border border-cantabria-border bg-cantabria-surface py-2.5 pl-3 pr-3 text-base text-cantabria-text',
         'transition-colors duration-150',
         'placeholder:text-cantabria-muted',
         'hover:border-cantabria-dark hover:bg-cantabria-dark-muted',
