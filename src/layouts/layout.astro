@@ -2,8 +2,8 @@
 import { ClientRouter } from 'astro:transitions';
 import Breadcrumbs from '@/components/breadcrumbs.astro';
 import { cn } from '@/utils/classes';
-import '@/styles/global.css';
 import pkg from '../../package.json';
+import '@/styles/global.css';
 
 interface Props {
   class?: string;
@@ -63,7 +63,7 @@ const isHomePage = pathname === '/';
       {!isHomePage && <Breadcrumbs pathname={pathname} />}
       <slot />
       <footer
-        class="mt-auto border-t border-cantabria-border/40 pt-6 text-center text-xs text-cantabria-muted"
+        class="border-t border-cantabria-border/40 pt-6 text-center text-xs text-cantabria-muted"
       >
         <p>
           v{pkg.version}

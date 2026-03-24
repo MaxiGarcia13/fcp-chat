@@ -21,7 +21,7 @@ export function ChatMessageBubble({ message, className }: ChatMessageBubbleProps
     >
       <div
         className={cn(
-          'max-w-[min(100%,36rem)] rounded-lg px-3.5 py-2.5 text-sm leading-relaxed',
+          'max-w-[min(100%,46rem)] rounded-lg px-3.5 py-2.5 text-sm leading-relaxed',
           isSystem && 'w-full border border-cantabria-border/80 bg-cantabria-surface/60 text-center text-cantabria-muted',
           isUser && 'bg-cantabria-red/90 text-white',
           !isUser && !isSystem && 'border border-cantabria-border bg-cantabria-surface text-cantabria-text',

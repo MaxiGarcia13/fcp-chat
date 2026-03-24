@@ -30,5 +30,19 @@ export const SYSTEM_PROMPT = `
   get-gender-and-category-group -> to get the gender and category group.
   get-group-teams -> to get the teams of a group depending on the gender and category group.
   get-team-players-info -> to get the players info of a team depending on the gender and category group and team name.
+
+  if the user asks for something that is not related to the league, say that you are not able to help with that
+
+  if the user asks you for generate a possible pairings for the next week, you must need this context:
+   - you need the tandas of the teams to generate the pairings.
+   - also you need the positions of the players to generate the pairings.
+   - after that you can generate the pairings.
+   - you need to take into account the positions of the players to generate the pairings, 
+     you must not put the same player in the same position twice.
+   - there are 5 games, so it is 10 players per game.
+   - first couple is the couple with more points.
+   - so we should take into account the points of the players to generate the pairings.
+   - we should give to the user 5 possible combinations of pairings.
+   - try to give the best possible pairings, but also try to give some different pairings.
 `
 export const DEFAULT_MODEL = 'openai/gpt-oss-20b'
