@@ -89,6 +89,9 @@ export function useChat(chatID?: string) {
         const chunk = decoder.decode(value, { stream: true })
         updateMessage(id, chunk)
       }
+    } catch (error) {
+      console.error('Error streaming message', error)
+      updateMessage(id, `Error: ${error instanceof Error ? error.message : 'Unknown error'}`)
     } finally {
       signal.removeEventListener('abort', onAbort)
       storage.setJson(`messages-for-chat:${chatID}`, messagesStore.get())
@@ -122,9 +125,11 @@ export function useChat(chatID?: string) {
     } catch (error) {
       if (error instanceof Error && error.name === 'AbortError')
         return
-      console.error('Error sending message', error)
+
       const errorMessage = error instanceof Error ? error.message : 'Error sending message'
+
       addMessage('assistant', `Error: ${errorMessage}`, crypto.randomUUID())
+
       storage.setJson(`messages-for-chat:${chatID}`, messagesStore.get())
     } finally {
       isLoadingStore.set(false)
