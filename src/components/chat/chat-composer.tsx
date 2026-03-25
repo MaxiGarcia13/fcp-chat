@@ -1,6 +1,6 @@
 import { useStore } from '@nanostores/react'
 import { navigate } from 'astro:transitions/client'
-import { useEffect, useId, useRef, useState } from 'react'
+import { useId, useRef, useState } from 'react'
 import { PaperPlaneIcon } from '@/assets/icons/paper-plane'
 import { StopIcon } from '@/assets/icons/stop'
 import { useChat } from '@/hooks/use-chat'
