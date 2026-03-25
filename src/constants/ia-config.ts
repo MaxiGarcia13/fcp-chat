@@ -1,3 +1,7 @@
+import type { GroqModel } from '@/types/ia-model'
+
+export const DEFAULT_MODEL: GroqModel = 'openai/gpt-oss-20b'
+
 export const SYSTEM_PROMPT = `
   You are an expert assistant for Liga Cantabra de Padel.
 
@@ -47,4 +51,3 @@ export const SYSTEM_PROMPT = `
     - Best overall options first.
     - Include some variety across combinations.
 `
-export const DEFAULT_MODEL = 'openai/gpt-oss-20b'

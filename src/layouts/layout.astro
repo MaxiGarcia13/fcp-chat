@@ -1,8 +1,15 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import Breadcrumbs from '@/components/breadcrumbs.astro';
+import {
+  APP_NAME,
+  APP_VERSION,
+  AUTHOR_NAME,
+  BASE_IMAGE_URL,
+  LINKEDIN_URL,
+  REPOSITORY_URL,
+} from '@/constants/global';
 import { cn } from '@/utils/classes';
-import pkg from '../../package.json';
 import '@/styles/global.css';
 
 interface Props {
@@ -11,21 +18,15 @@ interface Props {
 
 const { class: className } = Astro.props;
 
-const repoUrl =
-  typeof pkg.repository === 'object' && pkg.repository?.url
-    ? pkg.repository.url.replace(/^git\+/, '').replace(/\.git$/, '')
-    : (pkg.homepage?.split('#')[0] ?? '#');
-
-const authorLinkedInUrl = 'https://www.linkedin.com/in/maximilianogarcia13';
-
 const pathname = Astro.url.pathname;
 const isHomePage = pathname === '/';
 
-const siteTitle = 'Chat con IA para la Liga Cantabra de Padel'
-const description = `Esta app de chat con IA te ayuda a encontrar la tabla de posiciones, conocer los proximos partidos, comparar equipos y sugerir posibles alineaciones para la semana en la Liga Cantabra de Padel.`.trim()
+const siteTitle = 'Chat con IA para la Liga Cantabra de Padel';
+const description =
+  `Esta app de chat con IA te ayuda a encontrar la tabla de posiciones, conocer los proximos partidos, comparar equipos y sugerir posibles alineaciones para la semana en la Liga Cantabra de Padel.`.trim();
 
-const canonicalUrl = Astro.url.href
-const ogImageUrl = new URL('/favicon.png', Astro.url).toString()
+const canonicalUrl = Astro.url.href;
+const ogImageUrl = new URL(BASE_IMAGE_URL, Astro.url).toString();
 ---
 
 <html lang="es">
@@ -39,17 +40,17 @@ const ogImageUrl = new URL('/favicon.png', Astro.url).toString()
 
     <meta name="description" content={description} />
     <meta name="robots" content="index,follow" />
-    <meta name="author" content={pkg.author} />
-    <meta name="application-name" content={pkg.name} />
+    <meta name="author" content={AUTHOR_NAME} />
+    <meta name="application-name" content={APP_NAME} />
     <meta name="theme-color" content="#0f172a" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:site_name" content={pkg.name} />
+    <meta property="og:site_name" content={APP_NAME} />
     <meta property="og:title" content={siteTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:image:alt" content={pkg.name} />
+    <meta property="og:image:alt" content={APP_NAME} />
     <meta property="og:locale" content="es_ES" />
 
     <meta property="twitter:card" content="summary_large_image" />
@@ -59,17 +60,11 @@ const ogImageUrl = new URL('/favicon.png', Astro.url).toString()
 
     <meta property="linkedin:card" content="summary_large_image" />
     <meta property="linkedin:url" content={canonicalUrl} />
-    <meta
-      property="linkedin:title"
-      content={siteTitle}
-    />
+    <meta property="linkedin:title" content={siteTitle} />
     <meta property="linkedin:description" content={description} />
     <meta property="linkedin:image" content={ogImageUrl} />
 
-    <meta
-      property="twitter:image"
-      content={ogImageUrl}
-    />
+    <meta property="twitter:image" content={ogImageUrl} />
 
     <ClientRouter />
   </head>
@@ -86,10 +81,10 @@ const ogImageUrl = new URL('/favicon.png', Astro.url).toString()
         class="border-t border-cantabria-border/40 pt-6 text-center text-xs text-cantabria-muted"
       >
         <p>
-          v{pkg.version}
+          v{APP_VERSION}
           <span class="mx-1.5 opacity-50" aria-hidden="true">·</span>
           <a
-            href={repoUrl}
+            href={REPOSITORY_URL}
             class="text-cantabria-link underline-offset-2 hover:underline"
             target="_blank"
             rel="noopener noreferrer"
@@ -99,12 +94,12 @@ const ogImageUrl = new URL('/favicon.png', Astro.url).toString()
           <span class="mx-1.5 opacity-50" aria-hidden="true">·</span>
           Creado por{' '}
           <a
-            href={authorLinkedInUrl}
+            href={LINKEDIN_URL}
             class="text-cantabria-link underline-offset-2 hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
-            {pkg.author}
+            {AUTHOR_NAME}
           </a>
         </p>
       </footer>
