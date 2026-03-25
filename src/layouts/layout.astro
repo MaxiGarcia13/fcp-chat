@@ -21,58 +21,54 @@ const authorLinkedInUrl = 'https://www.linkedin.com/in/maximilianogarcia13';
 const pathname = Astro.url.pathname;
 const isHomePage = pathname === '/';
 
-const description = `
-This project provides an AI-powered chat that can help you:
+const siteTitle = 'Chat con IA para la Liga Cantabra de Padel'
+const description = `Esta app de chat con IA te ayuda a encontrar la tabla de posiciones, conocer los proximos partidos, comparar equipos y sugerir posibles alineaciones para la semana en la Liga Cantabra de Padel.`.trim()
 
-- Find team standings and rankings
-- Get info about next week's matches
-- Compare teams and highlight key differences
-- Suggest weekly lineups / possible pairings for upcoming matches
-- Answer general league/competition questions
-`.trim();
+const canonicalUrl = Astro.url.href
+const ogImageUrl = new URL('/favicon.png', Astro.url).toString()
 ---
 
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="canonical" href={Astro.url.href} />
+    <link rel="canonical" href={canonicalUrl} />
 
-    <title>Chat assistant for the Liga Cantabra de Padel.</title>
+    <title>{siteTitle}</title>
 
     <meta name="description" content={description} />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content={pkg.author} />
+    <meta name="application-name" content={pkg.name} />
+    <meta name="theme-color" content="#0f172a" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.href} />
-    <meta
-      property="og:title"
-      content="Chat assistant for the Liga Cantabra de Padel."
-    />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={pkg.name} />
+    <meta property="og:title" content={siteTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL('/favicon.png', Astro.url)} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={pkg.name} />
     <meta property="og:locale" content="es_ES" />
 
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url.href} />
-    <meta
-      property="twitter:title"
-      content="Chat assistant for the Liga Cantabra de Padel."
-    />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={siteTitle} />
     <meta property="twitter:description" content={description} />
 
-    <meta name="linkedin:card" content="summary_large_image" />
-    <meta name="linkedin:url" content={Astro.url.href} />
+    <meta property="linkedin:card" content="summary_large_image" />
+    <meta property="linkedin:url" content={canonicalUrl} />
     <meta
-      name="linkedin:title"
-      content="Chat assistant for the Liga Cantabra de Padel."
+      property="linkedin:title"
+      content={siteTitle}
     />
-    <meta name="linkedin:description" content={description} />
-    <meta name="linkedin:image" content={new URL('/favicon.png', Astro.url)} />
+    <meta property="linkedin:description" content={description} />
+    <meta property="linkedin:image" content={ogImageUrl} />
 
     <meta
       property="twitter:image"
-      content={new URL('/favicon.png', Astro.url)}
+      content={ogImageUrl}
     />
 
     <ClientRouter />
