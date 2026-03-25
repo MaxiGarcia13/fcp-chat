@@ -3,7 +3,7 @@
 ## Project
 
 - Name: `fcp-chat`
-- Goal: build a chat using WebLLM, read players from an API, and predict possible good players for the week
+- Goal: Find the leaderboard, a team or compare a team with other teams.
 
 ## Tech Stack
 
