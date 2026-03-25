@@ -18,11 +18,18 @@ const repoUrl =
 
 const authorLinkedInUrl = 'https://www.linkedin.com/in/maximilianogarcia13';
 
-const description =
-  'FCP Chat - Chat para armar los equipos para la proxima fecha de la Liga Cántabra de Pádel';
-
 const pathname = Astro.url.pathname;
 const isHomePage = pathname === '/';
+
+const description = `
+This project provides an AI-powered chat that can help you:
+
+- Find team standings and rankings
+- Get info about next week's matches
+- Compare teams and highlight key differences
+- Suggest weekly lineups / possible pairings for upcoming matches
+- Answer general league/competition questions
+`.trim();
 ---
 
 <html>
@@ -32,24 +39,40 @@ const isHomePage = pathname === '/';
 
     <link rel="canonical" href={Astro.url.href} />
 
-    <title>FCP Chat</title>
+    <title>Chat assistant for the Liga Cantabra de Padel.</title>
 
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:title" content="FCP Chat" />
+    <meta
+      property="og:title"
+      content="Chat assistant for the Liga Cantabra de Padel."
+    />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL('/og-image.png', Astro.url)} />
+    <meta property="og:image" content={new URL('/favicon.png', Astro.url)} />
     <meta property="og:locale" content="es_ES" />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url.href} />
-    <meta property="twitter:title" content="FCP Chat" />
+    <meta
+      property="twitter:title"
+      content="Chat assistant for the Liga Cantabra de Padel."
+    />
     <meta property="twitter:description" content={description} />
+
+    <meta name="linkedin:card" content="summary_large_image" />
+    <meta name="linkedin:url" content={Astro.url.href} />
+    <meta
+      name="linkedin:title"
+      content="Chat assistant for the Liga Cantabra de Padel."
+    />
+    <meta name="linkedin:description" content={description} />
+    <meta name="linkedin:image" content={new URL('/favicon.png', Astro.url)} />
+
     <meta
       property="twitter:image"
-      content={new URL('/og-image.png', Astro.url)}
+      content={new URL('/favicon.png', Astro.url)}
     />
 
     <ClientRouter />
