@@ -106,3 +106,16 @@ const ogImageUrl = new URL(BASE_IMAGE_URL, Astro.url).toString();
     </main>
   </body>
 </html>
+<script>
+  const key = 'fcp-timestamp';
+  const timestamp = localStorage.getItem(key);
+
+  const wasMoreThan5MinutesSinceLastPing =
+    timestamp && new Date(timestamp).getTime() + 5 * 60 * 1000 < Date.now();
+
+  if (wasMoreThan5MinutesSinceLastPing) {
+    fetch('/api/ping-scrapper').finally(() => {
+      localStorage.setItem(key, new Date().toISOString());
+    });
+  }
+</script>
