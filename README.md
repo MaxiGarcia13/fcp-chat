@@ -1,6 +1,4 @@
-# FCP Chat
-
-Chat assistant for the **Liga Cantabra de Padel**.
+# Chat assistant for the **Liga Cantabra de Padel**.
 
 ## What it does
 
